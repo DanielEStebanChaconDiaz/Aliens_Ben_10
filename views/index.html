@@ -8,9 +8,90 @@
 </head>
 <body>
     <h1>Aliens</h1>
-    <div id="data-container"></div>
+
+    <div id="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="login-error" style="color: red; display: none;">Invalid credentials, please try again.</p>
+        <button id="show-register">Register</button>
+    </div>
+
+    <div id="register-container" style="display: none;">
+        <h2>Register</h2>
+        <form id="register-form">
+            <label for="new-username">Username:</label>
+            <input type="text" id="new-username" name="new-username" required>
+            <label for="new-password">Password:</label>
+            <input type="password" id="new-password" name="new-password" required>
+            <button type="submit">Register</button>
+        </form>
+        <p id="register-error" style="color: red; display: none;">Registration failed, please try again.</p>
+    </div>
+    <div id="data-container" style="display: none;"></div>
+    
 
     <script>
+        document.getElementById('show-register').addEventListener('click', () => {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('register-container').style.display = 'block';
+        });
+
+        document.getElementById('register-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const username = document.getElementById('new-username').value;
+            const password = document.getElementById('new-password').value;
+
+            try {
+                const response = await fetch('/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    alert('Registration successful!');
+                    document.getElementById('register-container').style.display = 'none';
+                    document.getElementById('login-container').style.display = 'block';
+                } else {
+                    document.getElementById('register-error').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error registering:', error);
+                document.getElementById('register-error').style.display = 'block';
+            }
+        });
+
+        document.getElementById('login-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    document.getElementById('login-container').style.display = 'none';
+                    document.getElementById('data-container').style.display = 'flex';
+                    fetchAliens();
+                } else {
+                    document.getElementById('login-error').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error logging in:', error);
+                document.getElementById('login-error').style.display = 'block';
+            }
+        });
+
         async function fetchAliens() {
             try {
                 const response = await fetch('/aliens');
@@ -31,8 +112,6 @@
                 console.error('Error fetching data:', error);
             }
         }
-
-        fetchAliens();
     </script>
 </body>
 </html>
