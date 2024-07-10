@@ -11,7 +11,7 @@ body {
     text-align: center;
     background-image: url('https://e0.pxfuel.com/wallpapers/454/310/desktop-wallpaper-ben-10-ben-10-transformation-background-teahub-io.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -91,7 +91,8 @@ h1 {
     right: 5%;
     top: 9%;
     border-radius: 50%;
-    background-image: url('');
+    background: none;
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3cd770b2-3e49-4672-99fb-8483b9dd9bf0/dgdixd7-fc7d440f-f7b9-43fa-974b-e79935016186.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNjZDc3MGIyLTNlNDktNDY3Mi05OWZiLTg0ODNiOWRkOWJmMFwvZGdkaXhkNy1mYzdkNDQwZi1mN2I5LTQzZmEtOTc0Yi1lNzk5MzUwMTYxODYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.RUiqPtDbCnxw-_XIpyobC4VYBI3fFEXsk7w2NwvPnY8');
     background-repeat: no-repeat;
     background-size: cover;
     border:#006b30 0.2em solid;
@@ -104,7 +105,7 @@ h1 {
     background-color: #36ff51;
     scale: 1.1;
     cursor: pointer;
-    background-image: url('../media/logo2.png');
+    background-image: url('https://i.pinimg.com/originals/ea/58/a3/ea58a36405ae40523b993df4bfa710c6.gif');
   }
 
 #meses-container {

@@ -42,6 +42,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         if (response.ok) {
             document.getElementById('login-container').style.display = 'none';
             document.getElementById('data-container').style.display = 'flex';
+            document.querySelector('.linkalienmes').style.display = 'block';
             // document.getElementById('linkalienmes').style.display = 'block';
             fetchAliens();
         } else {
