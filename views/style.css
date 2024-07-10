@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
 
+
 body {
     font-family: "Bubblegum Sans", sans-serif;
     font-weight: 900;
@@ -8,7 +9,7 @@ body {
     background-color: #f4f4f4;
     color: #358102;
     text-align: center;
-    background-image: url(https://e0.pxfuel.com/wallpapers/454/310/desktop-wallpaper-ben-10-ben-10-transformation-background-teahub-io.jpg);
+    background-image: url('https://e0.pxfuel.com/wallpapers/454/310/desktop-wallpaper-ben-10-ben-10-transformation-background-teahub-io.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -81,14 +82,15 @@ h1 {
 
 .linkalienmes {
     position: absolute;
-    width: 5rem;
-    height: 2rem;
+    width: 4rem;
+    height: 4rem;
     right: 5%;
     top: 9%;
-    background-color:#000000;
-    color: #fff;
+    border-radius: 50%;
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
     border:#006b30 0.2em solid;
-    border-radius: 11px;
     text-align: center;
     transition: all 0.6s ease;
 
@@ -98,6 +100,7 @@ h1 {
     background-color: #36ff51;
     scale: 1.1;
     cursor: pointer;
+    background-image: url('../media/logo2.png');
   }
 
 #meses-container {
