@@ -2,7 +2,6 @@ document.getElementById('show-register').addEventListener('click', () => {
     document.getElementById('login-container').style.display = 'none';
     document.getElementById('register-container').style.display = 'block';
 });
-
 document.getElementById('register-form').addEventListener('submit', async (event) => {
     event.preventDefault();
     const username = document.getElementById('new-username').value;
@@ -43,6 +42,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         if (response.ok) {
             document.getElementById('login-container').style.display = 'none';
             document.getElementById('data-container').style.display = 'flex';
+            // document.getElementById('linkalienmes').style.display = 'block';
             fetchAliens();
         } else {
             document.getElementById('login-error').style.display = 'block';
@@ -67,7 +67,7 @@ async function fetchAliens() {
                 <h2>${alien.nombre}</h2>
                 <p>ID: ${alien.id_alien}</p>
             `;
-            container.appendChild(alienDiv);
+            container.append(alienDiv);
         });
     } catch (error) {
         console.error('Error fetching data:', error);

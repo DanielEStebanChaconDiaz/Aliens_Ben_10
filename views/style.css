@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
 
+
 body {
     font-family: "Bubblegum Sans", sans-serif;
     font-weight: 900;
@@ -8,7 +9,7 @@ body {
     background-color: #f4f4f4;
     color: #358102;
     text-align: center;
-    background-image: url(https://e0.pxfuel.com/wallpapers/454/310/desktop-wallpaper-ben-10-ben-10-transformation-background-teahub-io.jpg);
+    background-image: url('https://e0.pxfuel.com/wallpapers/454/310/desktop-wallpaper-ben-10-ben-10-transformation-background-teahub-io.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
     display: flex;
@@ -75,9 +76,74 @@ h1 {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.linkalienmes{
+    
+    border: 5px #006b30;
 }
 
+
+
+.linkalienmes {
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    right: 5%;
+    top: 9%;
+    border-radius: 50%;
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border:#006b30 0.2em solid;
+    text-align: center;
+    transition: all 0.6s ease;
+
+  }
+  
+  .linkalienmes:hover {
+    background-color: #36ff51;
+    scale: 1.1;
+    cursor: pointer;
+    background-image: url('../media/logo2.png');
+  }
+
+#meses-container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mes {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 10px;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+
+#alien-container {
+    color:#fff;
+    margin-bottom: 10px;
+}
+
+.alien2 {
+    background-color: 	#64cc4f;
+    border: 1px solid #006b30;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    height: 50vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.alien2 img{
+    width: auto;
+    height: 80%;
+}
 #login-form {
     display: flex;
     flex-direction: column;

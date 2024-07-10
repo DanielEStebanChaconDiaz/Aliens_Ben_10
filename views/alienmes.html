@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué alien eres según tu mes de nacimiento?</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>¿Qué alien eres según tu mes de nacimiento?</h1>
+    <button role="link" onclick="window.location='./index.html'" class="linkalienmes"></button>
+    <div id="meses-container"></div>
+    <div id="alien-container"></div>
+
+    <script>
+        async function fetchAliens() {
+            try {
+                const response = await fetch('/aliens');
+                const data = await response.json();
+                return data.slice(0, 12); // Obtener solo los primeros 12 aliens
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                return [];
+            }
+        }
+
+        function createMonthBoxes(aliens) {
+            const mesesContainer = document.getElementById('meses-container');
+            const alienContainer = document.getElementById('alien-container');
+            const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            mesesContainer.innerHTML = '';
+
+            meses.forEach((mes, index) => {
+                const mesDiv = document.createElement('div');
+                mesDiv.className = 'mes';
+                mesDiv.textContent = mes;
+                mesDiv.onclick = () => {
+                    alienContainer.innerHTML = 'Tu alien es:';
+                    const alien = aliens[index];
+                    const alienDiv = document.createElement('div');
+                    alienDiv.className = 'alien2';
+                    alienDiv.innerHTML = `
+                        <img src="${alien.foto_url}" onerror="this.onerror=null;this.src='default-image.png';">
+                        <div>
+                            <h2>${alien.nombre}</h2>
+                            <p>ID: ${alien.id_alien}</p>    
+                        </div>
+                    `;
+                    alienContainer.appendChild(alienDiv);
+
+                };
+                mesesContainer.appendChild(mesDiv);
+            });
+        }
+
+        async function init() {
+            const aliens = await fetchAliens();
+            createMonthBoxes(aliens);
+        }
+
+        init();
+    </script>
+</body>
+</html>
