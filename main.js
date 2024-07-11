@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;  // Usa el puerto proporcionado por Vercel
 
 const __dirname = path.resolve();  // Para obtener el directorio actual
 const usersFilePath = path.join(__dirname, 'users.json');
@@ -62,7 +62,8 @@ app.post('/login', (req, res) => {
 });
 
 // Servir archivos estáticos desde la carpeta 'views'
-app.use(express.static('views'));
+app.use(express.static(path.join(__dirname, 'views')));
+
 
 const moviesInstance = new movis();
 
@@ -76,5 +77,5 @@ app.get('/aliens', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on port ${port}`);
 });
