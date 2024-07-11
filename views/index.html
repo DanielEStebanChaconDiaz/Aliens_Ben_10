@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <script type="module" src="./codigo.js"></script>
 </head>
+
 <body>
     <h1>Aliens</h1>
+<<<<<<< HEAD
     
     <div id="login-container">
         <h2>Login</h2>
@@ -38,5 +41,65 @@
     <div id="data-container" style="display: none;">
     </div>
     
+=======
+    <div class="navegador">
+        <input id="search-input" type="text" placeholder="Buscar alien...">
+    </div>
+    <div id="data-container"></div>
+
+    <script>
+        async function fetchAliens() {
+            try {
+                const response = await fetch('/aliens');
+                const data = await response.json();
+                renderAliens(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        async function searchAliens() {
+            const searchInput = document.getElementById('search-input').value;
+            console.log("VALUE:", searchInput);
+            if (searchInput.trim() !== "") {
+                try {
+                    const response = await fetch(`/search?nombre=${searchInput}`);
+                    let data = await response.json();
+                    if (!Array.isArray(data)) {
+                        data = [data];
+                    }
+                    renderAliens(data);
+                } catch (error) {
+                    console.error('Error searching data:', error);
+                }
+            }
+        }
+
+
+        function renderAliens(data) {
+            const container = document.getElementById('data-container');
+            container.innerHTML = '';
+
+            data.forEach(alien => {
+                const alienDiv = document.createElement('div');
+                alienDiv.className = 'alien';
+                alienDiv.innerHTML = `
+                    <img src="${alien.foto_url}" onerror="this.onerror=null;this.src='default-image.png';">
+                    <h2>${alien.nombre}</h2>
+                    <p>ID: ${alien.id_alien}</p>
+                `;
+                container.appendChild(alienDiv);
+            });
+        }
+
+        document.getElementById('search-input').addEventListener('input', async function (event) {
+            await searchAliens(); 
+        });
+
+
+        fetchAliens();
+    </script>
+>>>>>>> e1ede86 (feat: :construction: Construccion de barra buscador)
 </body>
+
 </html>
